@@ -19,7 +19,11 @@ public class ArmController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) {
         Debug.Log("collision with " + collision.gameObject.tag);
 
-        if (collision.gameObject.tag.Equals("BadApple") || collision.gameObject.tag.Equals("GoodApple")) {
+        if (collision.gameObject.tag.Equals("BadApple")) {
+            Destroy(collision.gameObject);
+
+        }
+        else if (collision.gameObject.tag.Equals("GoodApple")) {
             Destroy(collision.gameObject);
         }
     }

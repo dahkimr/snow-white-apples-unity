@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +17,8 @@ public class AppleSpawner : MonoBehaviour {
     private const float spawnInterval = 2.0f;
 
     private SpawnInfo[] appleSpawnInfo = new SpawnInfo[numOfSpawnPos];
-    private float appleSpeed = 5;
+    private float appleSpeed = 10.0f;
+    private float torque = 3.0f;
 
 
     // Start is called before the first frame update
@@ -25,23 +27,23 @@ public class AppleSpawner : MonoBehaviour {
         // top right position
         Vector3 position = tRPos.transform.position;
         Vector2 direction = new Vector2(-1f, 0f);
-        SpawnInfo si = new SpawnInfo(position, direction);
+        SpawnInfo si = new SpawnInfo(position, direction, torque);
         appleSpawnInfo[0] = si;
 
         // bottom right position
         position = bRPos.transform.position;
-        si = new SpawnInfo(position, direction);
+        si = new SpawnInfo(position, direction, torque);
         appleSpawnInfo[1] = si;
 
         // bottom left position
         position = bLPos.transform.position;
         direction = new Vector2(1f, 0f);
-        si = new SpawnInfo(position, direction);
+        si = new SpawnInfo(position, direction, -torque);
         appleSpawnInfo[2] = si;
 
         // top left position
         position = tLPos.transform.position;
-        si = new SpawnInfo(position, direction);
+        si = new SpawnInfo(position, direction, -torque);
         appleSpawnInfo[3] = si;
 
         // spawn apple
@@ -51,14 +53,13 @@ public class AppleSpawner : MonoBehaviour {
     // spawn the apple and set it moving
     private void SpawnApple() {
         GameObject prefab;
-        int index = Random.Range(0, numOfSpawnPos);
+        int index = UnityEngine.Random.Range(0, numOfSpawnPos);
 
         // which prefab chosen should be random, but have probability
-        if (Random.Range(0f, 1f) > chanceSpawnBadApple) {
+        if (UnityEngine.Random.Range(0f, 1f) > chanceSpawnBadApple) {
             prefab = goodApple;
         }
         else {
-            prefab = goodApple;
             prefab = badApple;
         }
 
@@ -67,17 +68,21 @@ public class AppleSpawner : MonoBehaviour {
 
         // get prefab moving
         // or put script on prefab on start to keep moving
-        apple.GetComponent<Rigidbody2D>().AddForce(appleSpawnInfo[index].GetDirection() * appleSpeed, ForceMode2D.Impulse);
+        Rigidbody2D rb = apple.GetComponent<Rigidbody2D>();
+        rb.AddForce(appleSpawnInfo[index].GetDirection() * appleSpeed, ForceMode2D.Impulse);
+        rb.AddTorque(appleSpawnInfo[index].GetTorque(), ForceMode2D.Impulse);
     }
 }
 
 class SpawnInfo {
     Vector3 position;
     Vector2 direction;
+    float torque;
 
-    public SpawnInfo(Vector3 position, Vector2 direction) {
+    public SpawnInfo(Vector3 position, Vector2 direction, float torque) {
         this.position = position;
         this.direction = direction;
+        this.torque = torque;
     }
 
     public Vector3 GetPosition() {
@@ -86,5 +91,10 @@ class SpawnInfo {
 
     public Vector2 GetDirection() {
         return this.direction;
+    }
+
+    public float GetTorque()
+    {
+        return this.torque;
     }
 }
