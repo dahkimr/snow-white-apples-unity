@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class AppleSpawner : MonoBehaviour {
+
+    public GameObject player;
 
     public GameObject goodApple;
     public GameObject badApple;
@@ -52,25 +55,37 @@ public class AppleSpawner : MonoBehaviour {
 
     // spawn the apple and set it moving
     private void SpawnApple() {
-        GameObject prefab;
-        int index = UnityEngine.Random.Range(0, numOfSpawnPos);
 
-        // which prefab chosen should be random, but have probability
-        if (UnityEngine.Random.Range(0f, 1f) > chanceSpawnBadApple) {
-            prefab = goodApple;
+        bool gameOver = player.GetComponent<PlayerController>().gameOver;
+
+        if (!gameOver)
+        {
+            GameObject prefab;
+            int index = UnityEngine.Random.Range(0, numOfSpawnPos);
+
+            // which prefab chosen should be random, but have probability
+            if (UnityEngine.Random.Range(0f, 1f) > chanceSpawnBadApple)
+            {
+                prefab = goodApple;
+            }
+            else
+            {
+                prefab = badApple;
+            }
+
+            // create prefab at certain spot
+            GameObject apple = Instantiate(prefab, appleSpawnInfo[index].GetPosition(), Quaternion.identity);
+
+            // get prefab moving
+            // or put script on prefab on start to keep moving
+            Rigidbody2D rb = apple.GetComponent<Rigidbody2D>();
+            rb.AddForce(appleSpawnInfo[index].GetDirection() * appleSpeed, ForceMode2D.Impulse);
+            rb.AddTorque(appleSpawnInfo[index].GetTorque(), ForceMode2D.Impulse);
         }
-        else {
-            prefab = badApple;
+        else
+        {
+            CancelInvoke("SpawnApple");
         }
-
-        // create prefab at certain spot
-        GameObject apple = Instantiate(prefab, appleSpawnInfo[index].GetPosition(), Quaternion.identity);
-
-        // get prefab moving
-        // or put script on prefab on start to keep moving
-        Rigidbody2D rb = apple.GetComponent<Rigidbody2D>();
-        rb.AddForce(appleSpawnInfo[index].GetDirection() * appleSpeed, ForceMode2D.Impulse);
-        rb.AddTorque(appleSpawnInfo[index].GetTorque(), ForceMode2D.Impulse);
     }
 }
 
