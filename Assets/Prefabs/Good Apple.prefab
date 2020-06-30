@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7524552182845945208}
   - component: {fileID: 5324388565487425251}
   - component: {fileID: 2984793745314393464}
+  - component: {fileID: 45336816}
+  - component: {fileID: 45336817}
   m_Layer: 0
   m_Name: Good Apple
   m_TagString: GoodApple
@@ -119,3 +121,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.8
+--- !u!95 &45336816
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756857463295743110}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a7b6509f667bbf43bdf46525c94243a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &45336817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756857463295743110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d941dd24472f1ad43bd7cc9711754669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -73,26 +73,22 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("punchLowerLeft", false);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void hitGoodApple()
     {
-        if (other.gameObject.tag == "GoodApple")
+        points += pointsForHittingGoodApple;
+        score.text = points.ToString();
+    }
+
+    public void hitBadApple()
+    {
+        if (health > 0)
         {
-            points += pointsForHittingGoodApple;
-            score.text = points.ToString();
-        }
-        else if (other.gameObject.tag == "BadApple")
-        {
-            if (health > 0)
+            health -= 1;
+            Destroy(hearts[health].gameObject);
+            if (health == 0)
             {
-                health -= 1;
-                Destroy(hearts[health].gameObject);
-                if (health == 0)
-                {
-                    gameOver = true;
-                }
+                gameOver = true;
             }
         }
-
-        Destroy(other.gameObject);
     }
 }

@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 312183168}
   m_Layer: 0
   m_Name: Lower Left Collider
-  m_TagString: Untagged
+  m_TagString: Fist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 383412922}
   m_Layer: 0
   m_Name: Upper Left Collider
-  m_TagString: Untagged
+  m_TagString: Fist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 455308417}
   m_Layer: 0
   m_Name: Upper Right Collider
-  m_TagString: Untagged
+  m_TagString: Fist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 875589233}
   m_Layer: 0
   m_Name: Lower Right Collider
-  m_TagString: Untagged
+  m_TagString: Fist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1263,7 +1263,7 @@ GameObject:
   - component: {fileID: 1270965913}
   m_Layer: 0
   m_Name: DestroyAppleBoundingBox
-  m_TagString: Untagged
+  m_TagString: DestroyAppleBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1335,7 +1335,7 @@ GameObject:
   - component: {fileID: 1406734681}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

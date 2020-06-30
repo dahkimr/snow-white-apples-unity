@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5947442901411010919}
   - component: {fileID: 6205332155669509192}
   - component: {fileID: 5589959358933249529}
+  - component: {fileID: -7377829048883822640}
+  - component: {fileID: 124460121}
   m_Layer: 0
   m_Name: Bad Apple
   m_TagString: BadApple
@@ -119,3 +121,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.8
+--- !u!114 &-7377829048883822640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440644242836944638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d941dd24472f1ad43bd7cc9711754669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &124460121
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440644242836944638}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d9866d1375ed0d4dbeb017d4e205f3b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
