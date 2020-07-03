@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Screen.SetResolution(576, 768, false);
         health = hearts.Length;
     }
 
