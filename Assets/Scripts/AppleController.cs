@@ -43,12 +43,17 @@ public class AppleController : MonoBehaviour
             }
             else if (this.gameObject.tag == "BadApple")
             {
-                playerController.hitBadApple();
+                playerController.loseHealth();
             }
         }
         else if (other.gameObject.tag == "DestroyAppleBox")
         {
             animator.SetBool("destroyApple", true);
+
+            if (this.gameObject.tag == "GoodApple")
+            {
+                playerController.loseHealth();
+            }
         }
     }
 

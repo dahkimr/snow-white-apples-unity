@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         score.text = points.ToString();
     }
 
-    public void hitBadApple()
+    public void loseHealth()
     {
         if (health > 0)
         {
